@@ -1,7 +1,9 @@
 <template>
-    <p>Componente de Mensagem</p>
     <div>
-        <form id="burger-from">
+        <Message v-bind:msg = "msgForm" v-if="msg"/>
+    </div>
+    <div>
+        <form id="burger-form">
             <div class="input-container">
                 <label for="nome">Nome do cliente:</label>
                 <input type="text" id="nome" name="name" v-model="nome" placeholder="Digite o seu nome">
@@ -35,7 +37,9 @@
 </template>
 
 <script>
- export default {
+import Message from './Message.vue'
+
+export default {
     name: "BurgerForm",
     data() {
         return {
@@ -53,17 +57,27 @@
     methods: {
         async getIngredientes() {
 
-            const req = await fetch('http://localhost:3000/ingredientes');
-            const data = await req.json();
+           const req = await fetch('http://localhost:3000/ingredientes');
+           const data = await req.json();
 
+           // Colocar uma msg de sistema
+           this.msg = `Pedido nº${res.id} realizado com sucesso!`
+           this.msg = true
+            
            this.paes = data.paes;
            this.carnes = data.carnes;
            this.opcionaisdata = data.opcionais;
+            
+           // Limpar msg
+           setTimeout(() => this.msg = '', 3000);
 
         }
     },
     mounted() {
         this.getIngredientes()
+    },
+    components: {
+        Message
     }
  }
 </script>
