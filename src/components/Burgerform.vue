@@ -45,17 +45,17 @@ export default {
     },
     data() {
         return {
-            msgForm: "",
-            msg: false,
-            pedidoSet: false,
-            carnes: null,
-            paes: null,
-            opcionaisdata: null,
-            nome: null,
-            carne: null,
-            pao: null,
-            opcionais: [],
-            status: "Solicitado"
+              msgForm: "",
+              msg: false,
+              pedidoSet: false,
+              carnes: null,
+              paes: null,
+              opcionaisdata: null,
+              nome: null,
+              carne: null,
+              pao: null,
+              opcionais: [],
+              status: "Solicitado"
             }
         },
     methods: {
