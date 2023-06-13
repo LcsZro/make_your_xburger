@@ -2,7 +2,6 @@
   <Banner />
   <div>
     <h1>Monte o seu Burger:</h1>
-    <p>formulário</p>
     <Burgerform />
   </div>
 </template>

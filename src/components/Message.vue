@@ -1,5 +1,5 @@
 <template>
-    <div class="massage-container">
+    <div>
         <p>{{ msg }}</p>
     </div>
 </template>
@@ -11,16 +11,5 @@ export default {
         msg: String
     }
 }
-</script>
 
-<style scoped>
-    .message-container {
-        color: #0045;
-        background-color: #CCE5ff;
-        border: 2px solid #B8DAFF;
-        border-radius: 5px;
-        padding: 10px;
-        max-width: 400px;
-        margin: 30px;
-    }
-</style>
+</script>
