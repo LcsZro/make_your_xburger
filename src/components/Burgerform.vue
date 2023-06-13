@@ -29,7 +29,7 @@
               </div>
           </div>
           <div class="input-container">
-              <input type="submit" class="submit-btn"  value="Enviar">
+              <input type="submit" class="submit-btn"  value="Monte seu Burger!">
           </div>
       </form>
   </div>
