@@ -69,37 +69,40 @@ export default {
         },
 
         async createBurger(e) {
-            e.preventDefault()
-            const data = {
+            try {
+              e.preventDefault();
+              const data = {
                 nome: this.nome,
                 carne: this.carne,
                 pao: this.pao,
                 opcionais: this.opcionais,
                 status: "Solicitado"
-            }
+              };
 
-            const req = await fetch("https://json-backend.vercel.app/burgers", {
+              const req = await fetch("https://json-backend.vercel.app/burgers", {
                 method: "POST",
-                headers: {"Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
-            }) 
+              });
 
-            const resposta = await req.json()
-            
-            // Mostrando mensagem
-            this.msgForm = `Pedido N ${resposta.id} criado com sucesso!`
-            this.msg = true
+              const resposta = await req.json();
 
-            // Limpando campos 
+              // Mostrando mensagem
+              this.msgForm = `Pedido N ${resposta.id} criado com sucesso!`;
+              this.msg = true;
 
-            this.nome = ""
-            this.carne = ""
-            this.pao = ""
-            this.opcionais = []
+              // Limpando campos
+              this.nome = "";
+              this.carne = "";
+              this.pao = "";
+              this.opcionais = [];
 
-            setTimeout(() => this.msg = false, 3000)
-            
-        }
+              setTimeout(() => (this.msg = false), 3000);
+            } catch (error) {
+              console.error(error); // Registrar a exceção para análise
+            }
+          }
+
     },
     mounted() {
         this.getIngrdientes()

@@ -80,7 +80,7 @@ export default {
 
             const dataJson = JSON.stringify({status: option})
 
-            const req = await fetch(`https://json-backend.vercel.app/burgers/${id}`, {
+            const req = await fetch(`https://json-backend.vercel.app/burgers${id}`, {
                 method: "PATCH",
                 headers: {"Content-Type" : "application/json"},
                 body: dataJson
